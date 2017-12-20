@@ -1,0 +1,25 @@
+$container-width: 1200px !global;
+$gutter: 10px !global;
+$adjusted-gutter: $gutter /2;
+$columns: 12 !global;
+
+$body-bg: #f8fcff;
+
+$primary-color: #723d9a;
+$primary-color-foreground: white;
+
+$border: #efefef;
+
+%clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  & {
+    *zoom: 1;
+  }
+}

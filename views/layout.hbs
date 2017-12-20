@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+<head>
+    <title>
+        {{#if home}}
+            {{title}}
+        {{else}}
+            {{title}} - {{site.title}}
+        {{/if}}
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="site-header">
+    <div class="container">
+        <h1>FPV Rates</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="site-content">
+        {{{body}}}
+    </div>
+</div>
+</body>
 </html>
