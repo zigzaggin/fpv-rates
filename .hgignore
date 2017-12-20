@@ -1,5 +1,0 @@
-syntax: glob
-node_modules/*
-npm-debug.log
-public/stylesheets/style.css.map
-public/stylesheets/style.css
