@@ -338,7 +338,9 @@ td, th {
 
 *, *:before, *:after {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
 
 body {
   font-size: 16px;
@@ -353,7 +355,7 @@ a {
   text-decoration: none; }
 
 .container {
-  width: 1200px;
+  max-width: 1600px;
   margin: 0 auto; }
 
 .r {
@@ -430,7 +432,8 @@ a {
     margin-left: -10px;
     transition: .3s;
     margin-right: 22px;
-    position: relative; }
+    position: relative;
+    width: 173px; }
     .site-header .logo-container:after {
       content: "";
       height: 30px;
@@ -445,7 +448,8 @@ a {
       background-size: 40px;
       background-repeat: no-repeat;
       height: 40px;
-      margin-top: -7px; }
+      margin-bottom: -10px;
+      margin-top: -5px; }
     .site-header .logo-container span {
       float: left; }
     .site-header .logo-container:hover {
@@ -473,5 +477,41 @@ a {
 
 .container, .site-header, .site-header .logo-container {
   *zoom: 1; }
+
+.site-content .container:before, .site-content .site-header:before, .site-content .site-header .logo-container:before, .site-header .site-content .logo-container:before, .site-content .container:after, .site-content .site-header:after, .site-content .site-header .logo-container:after, .site-header .site-content .logo-container:after {
+  content: " ";
+  display: table; }
+
+.site-content .container:after, .site-content .site-header:after, .site-content .site-header .logo-container:after, .site-header .site-content .logo-container:after {
+  clear: both; }
+
+.site-content .container, .site-content .site-header, .site-content .site-header .logo-container, .site-header .site-content .logo-container {
+  *zoom: 1; }
+
+.site-content .home-page {
+  display: flex;
+  flex-direction: row; }
+  .site-content .home-page .rail {
+    flex: 0 0 300px;
+    background: white;
+    border: solid 1px #efefef;
+    margin-right: 10px; }
+    .site-content .home-page .rail ul {
+      list-style: none; }
+      .site-content .home-page .rail ul li {
+        padding: 5px 10px; }
+  .site-content .home-page .content {
+    padding: 10px;
+    flex: 1;
+    background: white;
+    border: solid 1px #efefef; }
+
+.site-content input, .site-content select {
+  height: 30px;
+  padding: 5px;
+  border-radius: 3px;
+  width: 100%;
+  border: solid 1px #efefef;
+  font-size: 1em; }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,6 +3,8 @@
 *, *:before, *:after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 body {
@@ -21,7 +23,7 @@ a {
 }
 
 .container {
-  width: $container-width;
+  max-width: $container-width;
   margin: 0 auto;
   @extend %clearfix;
 }

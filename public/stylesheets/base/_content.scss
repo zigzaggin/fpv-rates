@@ -2,4 +2,12 @@
 
 .site-content {
   @import "../pages/all-pages";
+  input, select {
+    height: 30px;
+    padding: 5px;
+    border-radius: 3px;
+    width: 100%;
+    border: solid 1px $border;
+    font-size: 1em;
+  }
 }
