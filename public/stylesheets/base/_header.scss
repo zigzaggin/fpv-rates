@@ -3,9 +3,58 @@
 .site-header {
   background: $primary-color;
   color: $primary-color-foreground;
-  padding: 10px 0;
   margin-bottom: 10px;
-  h1 {
-    font-size: 1.5em;
+  @extend %clearfix;
+  .logo-container {
+    padding: 10px;
+    font-family: "Abel", sans-serif;
+    font-size: 26px;
+    color: $primary-color-foreground;
+    float: left;
+    margin-left: -10px;
+    transition: .3s;
+    margin-right: 22px;
+    @extend %clearfix;
+    position: relative;
+    &:after {
+      content: "";
+      height: 30px;
+      position: absolute;
+      right: -12px;
+      top: 11px;
+      width: 2px;
+      background: #fff;
+    }
+    .logo {
+      width: 50px;
+      float: left;
+      background-size: 40px;
+      background-repeat: no-repeat;
+      height: 40px;
+      margin-top: -7px;
+    }
+    span {
+      float: left;
+    }
+    &:hover {
+      background: darken($primary-color, 5%);
+      transition: .3s;
+    }
+  }
+  a {
+    color: $primary-color-foreground;
+  }
+  nav {
+    float: left;
+    a {
+      display: block;
+      float: left;
+      padding: 15.5px 10px;
+      transition: .3s;
+      &:hover {
+        background: darken($primary-color, 5%);
+        transition: .3s;
+      }
+    }
   }
 }

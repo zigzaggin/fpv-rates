@@ -1,8 +1,5 @@
 @import "../settings";
 
 .site-content {
-  background: white;
-  border: solid 1px $border;
-  padding: 10px;
-  box-shadow: 1px 1px darken($border, 1%);
+  @import "../pages/all-pages";
 }
