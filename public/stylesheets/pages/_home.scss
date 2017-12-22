@@ -8,6 +8,22 @@
     background: white;
     border: solid 1px $border;
     margin-right: 10px;
+    .add {
+      background: $primary-color;
+      color: $primary-color-foreground;
+      margin: -1px -1px 0 -1px;
+      cursor: pointer;
+      transition: .3s;
+      display: block;
+      padding: 5px 10px;
+      i {
+        margin-right: 7px;
+      }
+      &:hover {
+        background: darken($primary-color, 5%);
+        transition: .3s;
+      }
+    }
     ul {
       list-style: none;
       li {
