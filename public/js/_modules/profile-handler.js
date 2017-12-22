@@ -12,7 +12,7 @@ define(['jquery'], function ($) {
     };
     var addToStorage = function (profileShell) {
         var profiles = fromStorage();
-        profiles.push(profileShell);
+        profiles.unshift(profileShell);
         store(profiles);
     };
     var generateID = function () {
@@ -48,6 +48,17 @@ define(['jquery'], function ($) {
                 return value.id === profileId;
             });
             profiles.splice(index, 1);
+
+            store(profiles);
+        },
+        persist: function (obj) {
+            var profiles = fromStorage();
+
+            var index = profiles.findIndex(function (value) {
+                return value.id === obj.id;
+            });
+
+            profiles[index] = obj;
 
             store(profiles);
         }

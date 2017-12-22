@@ -4,7 +4,8 @@ var require = {
         "jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min",
         "handlebars": "_lib/handlebars",
         "text": "_lib/text",
-        "profile-handler": "_modules/profile-handler"
+        "profile-handler": "_modules/profile-handler",
+        "serialize-object": "_modules/serialize-object"
     },
     shim: {
         handlebars: {

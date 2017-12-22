@@ -3,9 +3,10 @@ requirejs(
         'jquery',
         'profile-handler',
         'hbs!pages/home/rail',
-        'hbs!pages/home/content'
+        'hbs!pages/home/content',
+        'serialize-object'
     ],
-    function ($, Handler, rail, content) {
+    function ($, Handler, rail, content, so) {
         $(function () {
             var page = $("#home-page-target");
 
@@ -42,12 +43,23 @@ requirejs(
                     activateProfile(currentActive);
             };
 
+            var persist = function () {
+                var obj = page.find("[data-content-target]").serializeObject();
+                Handler.persist(obj);
+            };
+
             page.on("click", "[data-add-profile]", addProfile);
             page.on("click", "[data-profile] > span", function (e) {
                 var profile = $(this).parents("[data-profile]");
                 activateProfile(profile.data("profile"));
             });
             page.on("click", "[data-remove-profile]", removeProfile);
+            page.on("keyup", "[data-content-target] input", persist);
+            page.on("keyup", "[data-content-target] [name='description']", function () {
+                var me = $(this);
+                var id = page.find("[data-content-target] [name='id']").val();
+                page.find("[data-profile='" + id + "'] span").text(me.val());
+            });
 
             renderRail();
         });
