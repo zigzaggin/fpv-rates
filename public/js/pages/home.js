@@ -6,12 +6,13 @@ requirejs(
         'hbs!pages/home/content',
         'hbs!pages/home/cli',
         'serialize-object',
-        'handlebars'
+        'handlebars',
+        'rate-math'
     ],
-    function ($, Handler, rail, content, cli, so, HB) {
+    function ($, Handler, rail, content, cli, so, HB, RateMath) {
         $(function () {
             HB.registerHelper("multiply", function (a, b) {
-                return Number(a) * Number(b);
+                return Math.round(Number(a) * Number(b));
             });
             HB.registerPartial("cli", cli);
             var page = $("#home-page-target");
@@ -21,6 +22,8 @@ requirejs(
                 page.find("[data-content-target]").html(content(profile));
                 page.find("[data-profile]").removeClass("active");
                 page.find("[data-profile='" + id + "']").addClass("active");
+
+                page.find("[data-rc]").trigger("keyup");
             };
 
             var renderRail = function () {
@@ -61,10 +64,22 @@ requirejs(
             });
             page.on("click", "[data-remove-profile]", removeProfile);
             page.on("keyup", "[data-content-target] input", persist);
+
             page.on("keyup", "[data-content-target] input", function () {
                 var id = page.find("[data-content-target] [name='id']").val();
                 page.find("[data-cli-target]").val(cli(Handler.loadProfile(id)));
+
+                page.find(".rate").each(function (i, e) {
+                    var me = $(e);
+                    var rc = me.find("[data-rc]");
+                    var rc = rc.length === 0 ? page.find("[data-pitch-rc]").val() : rc.val();
+                    var sr = me.find("[data-super]").val();
+                    var ex = me.find("[data-expo]").val();
+
+                    me.find("[data-degs]").val(RateMath(rc, sr, ex) + " degs/s");
+                });
             });
+
             page.on("keyup", "[data-content-target] [name='description']", function () {
                 var me = $(this);
                 var id = page.find("[data-content-target] [name='id']").val();

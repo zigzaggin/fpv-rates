@@ -4,7 +4,7 @@
         <div class="c8">
             <div class="control">
                 <label for="description">Profile Name</label>
-                <input type="text" name="description" value="{{description}}">
+                <input type='text' name="description" value="{{description}}">
             </div>
         </div>
         <div class="c4">
@@ -26,7 +26,7 @@
             <div class="c3">RC Rate</div>
             <div class="c3">Super Rate</div>
             <div class="c3">RC Expo</div>
-            <div class="c2">Degs/Sec</div>
+            <div class="c2"></div>
         </div>
     </div>
     <div class="rate roll">
@@ -34,10 +34,10 @@
             <div class="c1">
                 <span class="type-label">Roll</span>
             </div>
-            <div class="c3"><input type="text" name="RRC" value="{{RRC}}"></div>
-            <div class="c3"><input type="text" name="RSR" value="{{RSR}}"></div>
-            <div class="c3"><input type="text" name="REX" value="{{REX}}"></div>
-            <div class="c2"><input type="text" readonly></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" name="RRC" data-pitch-rc data-rc value="{{RRC}}"></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" name="RSR" data-super value="{{RSR}}"></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" name="REX" data-expo value="{{REX}}"></div>
+            <div class="c2"><input type="text" data-degs readonly></div>
         </div>
     </div>
     <div class="rate pitch">
@@ -46,9 +46,9 @@
                 <span class="type-label">Pitch</span>
             </div>
             <div class="c3"></div>
-            <div class="c3"><input type="text" name="PSR" value="{{PSR}}"></div>
-            <div class="c3"><input type="text" name="PEX" value="{{PEX}}"></div>
-            <div class="c2"><input type="text" readonly></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" data-super name="PSR" value="{{PSR}}"></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" data-expo name="PEX" value="{{PEX}}"></div>
+            <div class="c2"><input type="text" data-degs readonly></div>
         </div>
     </div>
     <div class="rate yaw">
@@ -56,10 +56,10 @@
             <div class="c1">
                 <span class="type-label">Yaw</span>
             </div>
-            <div class="c3"><input type="text" name="YRC" value="{{YRC}}"></div>
-            <div class="c3"><input type="text" name="YSR" value="{{YSR}}"></div>
-            <div class="c3"><input type="text" name="YEX" value="{{YEX}}"></div>
-            <div class="c2"><input type="text" readonly></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" data-rc name="YRC" value="{{YRC}}"></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" data-super name="YSR" value="{{YSR}}"></div>
+            <div class="c3"><input type='number' step="0.01" min="0" max="2.55" data-expo  name="YEX" value="{{YEX}}"></div>
+            <div class="c2"><input type="text" data-degs readonly></div>
         </div>
     </div>
 </div>

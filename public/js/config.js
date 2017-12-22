@@ -5,7 +5,8 @@ var require = {
         "handlebars": "_lib/handlebars",
         "text": "_lib/text",
         "profile-handler": "_modules/profile-handler",
-        "serialize-object": "_modules/serialize-object"
+        "serialize-object": "_modules/serialize-object",
+        "rate-math": "_modules/rate-math"
     },
     shim: {
         handlebars: {
