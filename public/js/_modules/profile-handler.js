@@ -32,7 +32,18 @@ define(['jquery'], function ($) {
             return profiles;
         },
         generateProfile: function () {
-            var profileShell = {id: generateID(), description: "New Profile"};
+            var profileShell = {
+                id: generateID(),
+                description: "New Profile",
+                RRC: 1,
+                RSR: .7,
+                REX: 0,
+                PSR: .7,
+                PEX: 0,
+                YRC: 1,
+                YSR: .7,
+                YEX: 0
+            };
             addToStorage(profileShell);
             return profileShell;
         },
