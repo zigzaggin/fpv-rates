@@ -10,6 +10,11 @@
     </title>
     <link href="https://fonts.googleapis.com/css?family=Abel|Open+Sans" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+    {{#if controller}}
+        <script src="js/config.js"></script>
+        <script data-main="pages/{{controller}}" src="js/_lib/require.js"></script>
+    {{/if}}
 </head>
 <body>
 <div class="site-header">

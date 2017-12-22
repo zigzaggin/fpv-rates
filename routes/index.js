@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     res.render('index', {
         home: true,
+        controller: "home",
         title: 'FPV Rates - All your rates in one place'
     });
 });
