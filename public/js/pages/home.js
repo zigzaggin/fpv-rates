@@ -19,7 +19,11 @@ requirejs(
 
             var activateProfile = function (id) {
                 var profile = Handler.loadProfile(id);
-                page.find("[data-content-target]").html(content(profile));
+                page.find("[data-content-target]").html(content($.extend({}, profile, {
+                    profiles: [0, 1, 2].map(function (value) {
+                        return {value: value, label: "Profile " + (value + 1), selected: profile.profile === (value + "")}
+                    })
+                })));
                 page.find("[data-profile]").removeClass("active");
                 page.find("[data-profile='" + id + "']").addClass("active");
 
@@ -63,9 +67,10 @@ requirejs(
                 activateProfile(profile.data("profile"));
             });
             page.on("click", "[data-remove-profile]", removeProfile);
-            page.on("keyup", "[data-content-target] input", persist);
+            var changeBinding = "[data-content-target] input, [data-content-target] select";
+            page.on("keyup change", changeBinding, persist);
 
-            page.on("keyup", "[data-content-target] input", function () {
+            page.on("keyup change", changeBinding, function () {
                 var id = page.find("[data-content-target] [name='id']").val();
                 page.find("[data-cli-target]").val(cli(Handler.loadProfile(id)));
 

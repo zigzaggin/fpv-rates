@@ -11,9 +11,9 @@
             <div class="control">
                 <label for="profile">Profile Index</label>
                 <select name="profile">
-                    <option value="0">Profile 1</option>
-                    <option value="1">Profile 2</option>
-                    <option value="2">Profile 3</option>
+                    {{#each profiles}}
+                    <option value="{{value}}" {{#if selected}}selected="selected"{{/if}}>{{label}}</option>
+                    {{/each}}
                 </select>
             </div>
         </div>
