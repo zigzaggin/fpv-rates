@@ -2842,7 +2842,32 @@ a {
     .site-content .home-page .rail ul {
       list-style: none; }
       .site-content .home-page .rail ul li {
-        padding: 5px 10px; }
+        position: relative;
+        margin-right: -1px;
+        margin-left: -1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer; }
+        .site-content .home-page .rail ul li span {
+          display: block;
+          padding: 5px 40px 5px 10px; }
+        .site-content .home-page .rail ul li:hover, .site-content .home-page .rail ul li.active {
+          background: #e2e2e2; }
+        .site-content .home-page .rail ul li i {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 35px;
+          height: 100%;
+          display: block;
+          text-align: center;
+          padding: 7px;
+          color: #d22613;
+          cursor: pointer; }
+          .site-content .home-page .rail ul li i:hover {
+            background: #d22613;
+            color: white; }
   .site-content .home-page .content {
     padding: 10px;
     flex: 1;

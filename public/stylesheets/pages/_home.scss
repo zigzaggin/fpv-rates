@@ -27,7 +27,36 @@
     ul {
       list-style: none;
       li {
-        padding: 5px 10px;
+        position: relative;
+        margin-right: -1px;
+        margin-left: -1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        span {
+          display: block;
+          padding: 5px 40px 5px 10px;
+        }
+        &:hover, &.active {
+          background: darken($border, 5%);
+        }
+        i {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 35px;
+          height: 100%;
+          display: block;
+          text-align: center;
+          padding: 7px;
+          color: $warning;
+          cursor: pointer;
+          &:hover {
+            background: $warning;
+            color: white;
+          }
+        }
       }
     }
   }

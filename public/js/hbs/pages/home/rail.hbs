@@ -1,3 +1,6 @@
 {{#each profiles}}
-    <li data-profile="{{id}}">{{description}}</li>
+    <li data-profile="{{id}}">
+        <span>{{description}}</span>
+        <i class="fa fa-trash" data-remove-profile></i>
+    </li>
 {{/each}}
