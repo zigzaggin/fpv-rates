@@ -2686,7 +2686,8 @@ a {
 
 .container {
   max-width: 1600px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 0 10px; }
 
 .r {
   margin-left: -5px;
@@ -2873,13 +2874,50 @@ a {
     flex: 1;
     background: white;
     border: solid 1px #efefef; }
+    .site-content .home-page .content label {
+      margin-bottom: 2px;
+      display: block; }
+    .site-content .home-page .content .rates {
+      margin-top: 10px;
+      border: solid 1px #efefef;
+      padding: 10px;
+      background: #fcfcfc; }
+      .site-content .home-page .content .rates .rate.header {
+        border-bottom: solid 1px #efefef;
+        padding-bottom: 7px; }
+      .site-content .home-page .content .rates .rate + .rate {
+        margin-top: 10px; }
+      .site-content .home-page .content .rates .rate.roll .type-label {
+        background: #f36e81; }
+      .site-content .home-page .content .rates .rate.pitch .type-label {
+        background: #87ff84; }
+      .site-content .home-page .content .rates .rate.yaw .type-label {
+        background: #8178f9; }
+      .site-content .home-page .content .rates .rate .type-label {
+        padding: 4px 10px;
+        display: block;
+        width: 100%; }
+    .site-content .home-page .content .cli {
+      margin-top: 10px; }
+      .site-content .home-page .content .cli textarea {
+        width: 100%;
+        height: 200px;
+        background: #fcfcfc;
+        border: solid 1px #efefef;
+        display: block; }
 
-.site-content input, .site-content select {
+.site-content input, .site-content select, .site-content textarea {
   height: 30px;
   padding: 5px;
   border-radius: 3px;
   width: 100%;
   border: solid 1px #efefef;
   font-size: 1em; }
+  .site-content input[readonly], .site-content select[readonly], .site-content textarea[readonly] {
+    background: #efefef;
+    outline: none; }
+
+.site-content textarea {
+  height: auto; }
 
 /*# sourceMappingURL=style.css.map */

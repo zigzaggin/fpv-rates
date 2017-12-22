@@ -2,12 +2,19 @@
 
 .site-content {
   @import "../pages/all-pages";
-  input, select {
+  input, select, textarea {
     height: 30px;
     padding: 5px;
     border-radius: 3px;
     width: 100%;
     border: solid 1px $border;
     font-size: 1em;
+    &[readonly] {
+      background: $border;
+      outline: none
+    }
+  }
+  textarea {
+    height: auto;
   }
 }
