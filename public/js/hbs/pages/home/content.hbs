@@ -1,8 +1,22 @@
+<input type="hidden" name="id" value="{{id}}">
 <div class="profile-name">
-    <input type="hidden" name="id" value="{{id}}">
-    <div class="control">
-        <label for="description">Profile Name</label>
-        <input type="text" name="description" value="{{description}}">
+    <div class="r">
+        <div class="c8">
+            <div class="control">
+                <label for="description">Profile Name</label>
+                <input type="text" name="description" value="{{description}}">
+            </div>
+        </div>
+        <div class="c4">
+            <div class="control">
+                <label for="profile">Profile Index</label>
+                <select name="profile">
+                    <option value="0">Profile 1</option>
+                    <option value="1">Profile 2</option>
+                    <option value="2">Profile 3</option>
+                </select>
+            </div>
+        </div>
     </div>
 </div>
 <div class="rates">
@@ -31,7 +45,7 @@
             <div class="c1">
                 <span class="type-label">Pitch</span>
             </div>
-            <div class="c3"><input type="text" name="PRC" value="{{PRC}}"></div>
+            <div class="c3"></div>
             <div class="c3"><input type="text" name="PSR" value="{{PSR}}"></div>
             <div class="c3"><input type="text" name="PEX" value="{{PEX}}"></div>
             <div class="c2"><input type="text" readonly></div>
@@ -51,5 +65,5 @@
 </div>
 <div class="cli">
     <label>CLI Commands</label>
-    <textarea readonly></textarea>
+    <textarea readonly data-cli-target>{{> cli}}</textarea>
 </div>

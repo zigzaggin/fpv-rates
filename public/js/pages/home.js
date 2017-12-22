@@ -4,10 +4,16 @@ requirejs(
         'profile-handler',
         'hbs!pages/home/rail',
         'hbs!pages/home/content',
-        'serialize-object'
+        'hbs!pages/home/cli',
+        'serialize-object',
+        'handlebars'
     ],
-    function ($, Handler, rail, content, so) {
+    function ($, Handler, rail, content, cli, so, HB) {
         $(function () {
+            HB.registerHelper("multiply", function (a, b) {
+                return Number(a) * Number(b);
+            });
+            HB.registerPartial("cli", cli);
             var page = $("#home-page-target");
 
             var activateProfile = function (id) {
@@ -55,10 +61,17 @@ requirejs(
             });
             page.on("click", "[data-remove-profile]", removeProfile);
             page.on("keyup", "[data-content-target] input", persist);
+            page.on("keyup", "[data-content-target] input", function () {
+                var id = page.find("[data-content-target] [name='id']").val();
+                page.find("[data-cli-target]").val(cli(Handler.loadProfile(id)));
+            });
             page.on("keyup", "[data-content-target] [name='description']", function () {
                 var me = $(this);
                 var id = page.find("[data-content-target] [name='id']").val();
                 page.find("[data-profile='" + id + "'] span").text(me.val());
+            });
+            page.on("click", "[data-cli-target]", function () {
+                $(this).focus().select();
             });
 
             renderRail();
