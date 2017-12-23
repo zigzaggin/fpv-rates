@@ -2798,6 +2798,17 @@ a {
       .site-header nav a:hover {
         background: #364b88;
         transition: .3s; }
+  .site-header .user {
+    float: right;
+    margin-right: -10px; }
+    .site-header .user a {
+      display: block;
+      float: left;
+      padding: 15.5px 10px;
+      transition: .3s; }
+      .site-header .user a:hover {
+        background: #364b88;
+        transition: .3s; }
 
 .container:before, .site-header:before, .site-header .logo-container:before, .container:after, .site-header:after, .site-header .logo-container:after {
   content: " ";

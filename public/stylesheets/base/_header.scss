@@ -59,4 +59,18 @@
       }
     }
   }
+  .user {
+    float: right;
+    margin-right: -10px;
+    a {
+      display: block;
+      float: left;
+      padding: 15.5px 10px;
+      transition: .3s;
+      &:hover {
+        background: darken($primary-color, 5%);
+        transition: .3s;
+      }
+    }
+  }
 }

@@ -1,4 +1,6 @@
 var express = require('express');
+var app = express();
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -6,13 +8,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var hbs = require('hbs');
+var mongoose = require('mongoose');
+var configDB = require('./configs/database.js');
 
-var home = require('./routes/home');
-var about = require('./routes/about');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
 
-var app = express();
-
-app.locals.site = require('./settings');
+mongoose.connect(configDB.url);
 
 // view engine setup
 hbs.registerPartials(__dirname + '/views/partials');
@@ -33,9 +36,21 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./configs/passport')(passport);
+
+app.use(session({secret: 'asdflkjdsfklj23fLKJlk3nmNMdfiJ-dfLM3mf;lk'}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash());
+
+app.use(function(req,res,next){
+    res.locals.user = req.user;
+    app.locals.site = require('./configs/settings');
+    next();
+});
+
 //urls
-app.use('/', home);
-app.use('/about', about);
+require('./app/routes')(app, passport);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

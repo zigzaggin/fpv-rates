@@ -29,6 +29,14 @@
             <a href="/">My Rates</a>
             <a href="/about">About</a>
         </nav>
+        <div class="user">
+            {{#if user}}
+                <a href="/logout">Logout</a>
+            {{else}}
+                <a href="/login">Login</a>
+                <a href="/sign-up">Sign Up</a>
+            {{/if}}
+        </div>
     </div>
 </div>
 <div class="site-content">
