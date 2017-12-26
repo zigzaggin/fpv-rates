@@ -38,12 +38,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 require('./configs/passport')(passport);
 
-app.use(session({secret: 'asdflkjdsfklj23fLKJlk3nmNMdfiJ-dfLM3mf;lk'}));
+app.use(session({secret: process.env.SECRET || 'superuninterestingdevsecret'}));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash());
 
-app.use(function(req,res,next){
+app.use(function (req, res, next) {
     res.locals.user = req.user;
     app.locals.site = require('./configs/settings');
     next();
